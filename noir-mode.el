@@ -88,10 +88,12 @@
   '("if" "constrain" "in")
   "List of Noir keywords that are always followed by expressions.")
 
-;; Nargo options
-(defcustom nargo-show-ssa nil "Nargo flag for showing SSA IR")
-(defcustom nargo-allow-warnings nil "Nargo flag for warning if unused variables are present")
-(defcustom nargo-show-output nil "Nargo flag for showing output of `println' statements")
+;; Customisation group
+(defgroup noir-mode nil "Noir-mode customisation group.")
+
+(defcustom nargo-show-ssa nil "Nargo flag for showing SSA IR" :type 'boolean :group 'noir-mode)
+(defcustom nargo-allow-warnings nil "Nargo flag for warning if unused variables are present" :type 'boolean :group 'noir-mode)
+(defcustom nargo-show-output nil "Nargo flag for showing output of `println' statements" :type 'boolean :group 'noir-mode)
 
 (defun nargo-opts ()
   (concat (if nargo-show-ssa "--show-ssa " "")
