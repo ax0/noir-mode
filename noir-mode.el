@@ -27,7 +27,7 @@
 ;; manager. It is derived from `rust-mode'.
 
 ;; The key bindings introduced are
-;; * C-c C-n C-s - nargo-check
+;; * C-c C-n C-c - nargo-check
 ;; * C-c C-n C-s - nargo-codegen-verifier (`s' for `Solidity')
 ;; * C-c C-n C-b - nargo-compile (`b' for `build')
 ;; * C-c C-n C-x - nargo-execute (`x' for `eXecute')
