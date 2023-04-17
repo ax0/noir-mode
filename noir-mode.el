@@ -89,7 +89,7 @@
   "List of Noir keywords that are always followed by expressions.")
 
 ;; Customisation group
-(defgroup noir-mode nil "Noir-mode customisation group.")
+(defgroup noir-mode nil "Noir-mode customisation group." :group 'languages)
 
 (defcustom nargo-show-ssa nil "Nargo flag for showing SSA IR" :type 'boolean :group 'noir-mode)
 (defcustom nargo-allow-warnings nil "Nargo flag for warning if unused variables are present" :type 'boolean :group 'noir-mode)
