@@ -17,7 +17,7 @@ Assuming this repository has been cloned to `/path/to/noir-mode` and `rust-mode`
 The following key bindings are meant to be mnemonic, being derived from either the command or its action:
 Key binding           |   Command                    | Mnemonic (if applicable)
 ------------------------------|------------------------------|-------------
-<kbd>C-c C-****n C-**c**</kbd>| <code><b>n</b>argo-<b>c</b>heck</code>        |
+<kbd>C-c C-**n** C-**c**</kbd>| <code><b>n</b>argo-<b>c</b>heck</code>        |
 <kbd>C-c C-**n** C-**s**</kbd>| <code><b>n</b>argo-codegen-verifier</code> | **S**olidity
 <kbd>C-c C-**n** C-**b**</kbd>| <code><b>n</b>argo-compile</code>			 | **b**uild
 <kbd>C-c C-**n** C-**x**</kbd>| <code><b>n</b>argo-execute</code>			 | e**x**ecute
@@ -26,7 +26,7 @@ Key binding           |   Command                    | Mnemonic (if applicable)
 <kbd>C-c C-**n** C-**a**</kbd>| <code><b>n</b>argo-print-<b>a</b>cir</code>	|
 <kbd>C-c C-**n** C-**p**</kbd>| <code><b>n</b>argo-<b>p</b>rove</code>		|
 <kbd>C-c C-**n** C-**t**</kbd>| <code><b>n</b>argo-<b>t</b>est</code>		 |
-<kbd>C-c C-**n** **C-**v**</kbd>| <code><b>n</b>argo-<b>v</b>erify</code>		 |
+<kbd>C-c C-**n** C-**v**</kbd>| <code><b>n</b>argo-<b>v</b>erify</code>		 |
 
 ## Customisation group
 The `noir-mode` customisation group is provided and contains the following user-customisable variables:
