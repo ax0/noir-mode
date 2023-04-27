@@ -46,6 +46,7 @@
 ;; Constants for font-locking purposes
 (defconst noir-keywords
   '("as"
+    "assert"
     "comptime"
     "contract"
     "crate"
