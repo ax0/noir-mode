@@ -49,6 +49,7 @@
     "assert"
     "comptime"
     "contract"
+    "distinct"
     "crate"
     "else" 
     "false"
