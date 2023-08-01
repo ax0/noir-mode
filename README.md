@@ -31,6 +31,7 @@ The `noir-mode` customisation group is provided and contains the following user-
 
 Variable | Description| Default value
 ---------|------------|----------
+`nargo-bin` | Path to Nargo executable | `nargo`
 `nargo-allow-warnings` | Nargo flag for warning if unused variables are present| `nil`
 `nargo-show-output` | Nargo flag for showing output of `println` statements | `nil`
 `nargo-show-ssa` | Nargo flag for showing SSA IR | `nil`

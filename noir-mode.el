@@ -93,6 +93,7 @@
 ;; Customisation group
 (defgroup noir-mode nil "Noir-mode customisation group." :group 'languages)
 
+(defcustom nargo-bin "nargo" "Path to Nargo executable" :type 'string :group 'noir-mode)
 (defcustom nargo-show-ssa nil "Nargo flag for showing SSA IR" :type 'boolean :group 'noir-mode)
 (defcustom nargo-deny-warnings nil "Nargo flag for erroring out in case of warnings" :type 'boolean :group 'noir-mode)
 (defcustom nargo-print-acir nil "Nargo flag for printing ACIR for the circuit" :type 'boolean :group 'noir-mode)
@@ -112,7 +113,7 @@
   "Call a nargo command with an optional argument."
   (interactive "MCommand: \nMArgument: ")
   (let ((opts (if (equal cmd "test") (nargo-test-opts) (nargo-opts))))
-  (compile (concat "nargo" " " cmd " " opts " " arg))))
+  (compile (concat nargo-bin " " cmd " " opts " " arg))))
 
 (defun nargo-new (project-name)
   "Create a new Nargo project. The new project will be placed in
