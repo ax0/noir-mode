@@ -101,7 +101,7 @@
 (defun nargo-opts ()
   (concat (if nargo-show-ssa "--show-ssa " "")
 	  (if nargo-print-acir "--print-acir " "")
-	  (if nargo-allow-warnings "--deny-warnings " "")))
+	  (if nargo-deny-warnings "--deny-warnings " "")))
 
 (defun nargo-test-opts ()
   (concat (nargo-opts)
