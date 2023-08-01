@@ -111,8 +111,8 @@
 (defun nargo-cmd (cmd &optional arg)
   "Call a nargo command with an optional argument."
   (interactive "MCommand: \nMArgument: ")
-  (defvar opts (if (equal cmd "test") (nargo-test-opts) (nargo-opts)))
-  (compile (concat "nargo" " " cmd " " opts " " arg)))
+  (let ((opts (if (equal cmd "test") (nargo-test-opts) (nargo-opts))))
+  (compile (concat "nargo" " " cmd " " opts " " arg))))
 
 (defun nargo-new (project-name)
   "Create a new Nargo project. The new project will be placed in
