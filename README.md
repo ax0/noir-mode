@@ -21,9 +21,7 @@ Key binding           |   Command                    | Mnemonic (if applicable)
 <kbd>C-c C-**n** C-**s**</kbd>| <code><b>n</b>argo-codegen-verifier</code> | Generate **S**olidity verifier
 <kbd>C-c C-**n** C-**b**</kbd>| <code><b>n</b>argo-compile</code>			 | **B**uild program
 <kbd>C-c C-**n** C-**x**</kbd>| <code><b>n</b>argo-execute</code>			 | E**x**ecute program
-<kbd>C-c C-**n** C-**g**</kbd>| <code><b>n</b>argo-<b>g</b>ates</code>		 |
-<kbd>C-c C-**n** C-**k**</kbd>| <code><b>n</b>argo-preprocess</code>		 | Generate **k**eys
-<kbd>C-c C-**n** C-**a**</kbd>| <code><b>n</b>argo-print-<b>a</b>cir</code>	|
+<kbd>C-c C-**n** C-**i**</kbd>| <code><b>n</b>argo-<b>i</b>nfo</code>		 |
 <kbd>C-c C-**n** C-**p**</kbd>| <code><b>n</b>argo-<b>p</b>rove</code>		|
 <kbd>C-c C-**n** C-**t**</kbd>| <code><b>n</b>argo-<b>t</b>est</code>		 |
 <kbd>C-c C-**n** C-**v**</kbd>| <code><b>n</b>argo-<b>v</b>erify</code>		 |

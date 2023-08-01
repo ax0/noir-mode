@@ -94,19 +94,25 @@
 (defgroup noir-mode nil "Noir-mode customisation group." :group 'languages)
 
 (defcustom nargo-show-ssa nil "Nargo flag for showing SSA IR" :type 'boolean :group 'noir-mode)
-(defcustom nargo-allow-warnings nil "Nargo flag for warning if unused variables are present" :type 'boolean :group 'noir-mode)
+(defcustom nargo-deny-warnings nil "Nargo flag for erroring out in case of warnings" :type 'boolean :group 'noir-mode)
+(defcustom nargo-print-acir nil "Nargo flag for printing ACIR for the circuit" :type 'boolean :group 'noir-mode)
 (defcustom nargo-show-output nil "Nargo flag for showing output of `println' statements" :type 'boolean :group 'noir-mode)
 
 (defun nargo-opts ()
   (concat (if nargo-show-ssa "--show-ssa " "")
-	  (if nargo-allow-warnings "--allow-warnings " "")
+	  (if nargo-print-acir "--print-acir " "")
+	  (if nargo-allow-warnings "--deny-warnings " "")))
+
+(defun nargo-test-opts ()
+  (concat (nargo-opts)
 	  (if nargo-show-output "--show-output" "")))
 
 ;; Functions corresponding to Nargo commands
 (defun nargo-cmd (cmd &optional arg)
   "Call a nargo command with an optional argument."
   (interactive "MCommand: \nMArgument: ")
-  (compile (concat "nargo" " " cmd " " (nargo-opts) " " arg)))
+  (defvar opts (if (equal cmd "test") (nargo-test-opts) (nargo-opts)))
+  (compile (concat "nargo" " " cmd " " opts " " arg)))
 
 (defun nargo-new (project-name)
   "Create a new Nargo project. The new project will be placed in
@@ -138,21 +144,10 @@ then the execution trace will be placed in `target/WITNESS-NAME.tr'."
   (interactive "MWitness name: ")
   (funcall 'nargo-cmd "execute" witness-name))
 
-(defun nargo-gates ()
+(defun nargo-info ()
   "Count the occurrences of different gates in a Noir program's circuit."
   (interactive)
-  (funcall 'nargo-cmd "gates"))
-
-(defun nargo-preprocess (artifact-name)
-  "Generate proving and verification keys for a Noir program's circuit,
-which are placed under `target/'."
-  (interactive "MArtifact name: ")
-  (funcall 'nargo-cmd "preprocess" artifact-name))
-
-(defun nargo-print-acir ()
-  "Print out the ACIR for a Noir program's compiled circuit."
-  (interactive)
-  (funcall 'nargo-cmd "print-acir"))
+  (funcall 'nargo-cmd "info"))
 
 (defun nargo-prove (&optional proof-name circuit-name)
   "Generate a proof for a Noir program in the form of a hex-encoded string.
@@ -183,9 +178,7 @@ name rather than the source code (if any) under `src/'."
     (define-key map (kbd "C-c C-n C-s") 'nargo-codegen-verifier) ; 's' for Solidity
     (define-key map (kbd "C-c C-n C-b") 'nargo-compile) ; 'b' for build
     (define-key map (kbd "C-c C-n C-x") 'nargo-execute) ; 'x' for eXecute
-    (define-key map (kbd "C-c C-n C-g") 'nargo-gates)
-    (define-key map (kbd "C-c C-n C-k") 'nargo-preprocess) ; 'k' for keys
-    (define-key map (kbd "C-c C-n C-a") 'nargo-print-acir) ; 'a' for ACIR
+    (define-key map (kbd "C-c C-n C-i") 'nargo-info)
     (define-key map (kbd "C-c C-n C-p") 'nargo-prove)
     (define-key map (kbd "C-c C-n C-t") 'nargo-test)
     (define-key map (kbd "C-c C-n C-v") 'nargo-verify)
